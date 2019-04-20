@@ -20,7 +20,7 @@ function printLn($string = '') {
  * @param $errorMessage
  */
 function printError($errorMessage) {
-    printLn("Error: \"$errorMessage\"");
+    printLn("Error: $errorMessage");
 }
 
 function error() {
@@ -38,7 +38,7 @@ $curl->get('https://modnakasta.ua/api/v2/market/menu/', [
 ]);
 
 if ($curl->error) {
-    printError($curl->error_code);
+    printError("\n\tcode: $curl->error_code\n\tmessage: $curl->error_message");
     die;
 }
 else {
