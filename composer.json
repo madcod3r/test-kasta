@@ -1,0 +1,15 @@
+{
+  "name": "madcod3r/test-kasta",
+  "description": "Test work for Kasta",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Oleg Voloshyn",
+      "email": "vololeg93@gmail.com"
+    }
+  ],
+  "require": {
+    "curl/curl": "2.2.0"
+  }
+}
