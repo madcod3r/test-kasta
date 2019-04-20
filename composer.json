@@ -11,6 +11,7 @@
   ],
   "require": {
     "curl/curl": "2.2.0",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-curl": "*"
   }
 }

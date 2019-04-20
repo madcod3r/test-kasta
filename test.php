@@ -33,6 +33,7 @@ function error() {
  * Here starts a test work
  */
 $curl = new Curl();
+$curl->setOpt(CURLOPT_SSL_VERIFYPEER, false);
 $curl->get('https://modnakasta.ua/api/v2/market/menu/', [
     'v' => 1
 ]);
@@ -44,7 +45,7 @@ if ($curl->error) {
 else {
     $categories = json_decode($curl->response, true);
 
-    if (count($categories) > 0) {
+    if (is_array($categories) && count($categories) > 0) {
 
         $countOfCategories = count($categories['nodes']);
 
