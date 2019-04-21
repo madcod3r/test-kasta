@@ -1,4 +1,6 @@
 <?php
+
+use Curl\Curl;
 /**
  * Print Line
  *
@@ -28,12 +30,12 @@ function error() {
 /**
  * Check if category has more then 10 products
  *
- * @param $curl
- * @param $categoryQuery
+ * @param Curl $curl
+ * @param string $categoryQuery
  * @param int $limit
  * @return int
  */
-function isCountOfProductsMoreThen($curl, $categoryQuery, $limit = 10)
+function isCountOfProductsMoreThen(Curl $curl, $categoryQuery, $limit = 10)
 {
     // send get request
     $curl->get("https://modnakasta.ua/api/v2/product-list$categoryQuery");
@@ -50,11 +52,11 @@ function isCountOfProductsMoreThen($curl, $categoryQuery, $limit = 10)
 /**
  * Get assoc array of categories
  *
- * @param $curl
+ * @param Curl $curl
  * @param null $parentId
  * @return array
  */
-function getCategories($curl, $parentId = null)
+function getCategories(Curl $curl, $parentId = null)
 {
     $categories = [];
 
@@ -119,12 +121,12 @@ function getCategories($curl, $parentId = null)
 /**
  * Print categories
  *
- * @param $categories
+ * @param array $categories
  * @param array $parentCategory
  * @param int $count
  * @return array
  */
-function printCategories($categories, $parentCategory = [], &$count = 1)
+function printCategories(array $categories, $parentCategory = [], &$count = 1)
 {
     // create breadcrumbs for category
     $breadcrumbs = [];
@@ -171,10 +173,10 @@ function printCategories($categories, $parentCategory = [], &$count = 1)
 /**
  * Count of categories
  *
- * @param $categories
+ * @param array $categories
  * @return int
  */
-function countOfCategories($categories) {
+function countOfCategories(array $categories) {
     $count = 0;
     $count += count($categories);
 
@@ -190,10 +192,10 @@ function countOfCategories($categories) {
 /**
  * Count of categories which are contain less then 10 products
  *
- * @param $categories
+ * @param array $categories
  * @return int
  */
-function countOfSmallCategories($categories) {
+function countOfSmallCategories(array $categories) {
     $count = 0;
     foreach ($categories as $category) {
 
